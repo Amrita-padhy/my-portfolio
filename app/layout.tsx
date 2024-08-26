@@ -5,6 +5,7 @@ import { PrimeReactProvider } from 'primereact/api';
 import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
+import { ThemeProvider } from "./context/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,11 +26,11 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        <PrimeReactProvider>
-          {children}
-
-        </PrimeReactProvider>
-
+      <ThemeProvider>
+          <PrimeReactProvider>
+            {children}
+          </PrimeReactProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
